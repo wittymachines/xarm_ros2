@@ -350,6 +350,8 @@ namespace uf_robot_hardware
     hardware_interface::return_type UFRobotSystemHardware::write(const rclcpp::Time & time, const rclcpp::Duration &period)
     {
         if (_need_reset()) {
+            RCLCPP_WARN_STREAM_THROTTLE(LOGGER, *get_clock(), 2000,
+             "Robot arm is not in velocity control mode.");
             if (initialized_) reload_controller_ = true;
             initialized_ = false;
             return hardware_interface::return_type::OK;
