@@ -33,6 +33,7 @@ def launch_setup(context, *args, **kwargs):
     node_name = LaunchConfiguration('node_name', default=node_executable)
     node_parameters = LaunchConfiguration('node_parameters', default={})
     use_gripper_node = LaunchConfiguration('use_gripper_node', default=add_gripper)
+    gripper_type = LaunchConfiguration('gripper_type', default="")
 
     add_realsense_d435i = LaunchConfiguration('add_realsense_d435i', default=False)
     add_d435i_links = LaunchConfiguration('add_d435i_links', default=True)
@@ -93,6 +94,7 @@ def launch_setup(context, *args, **kwargs):
             'geometry_mesh_tcp_xyz': geometry_mesh_tcp_xyz,
             'geometry_mesh_tcp_rpy': geometry_mesh_tcp_rpy,
             'kinematics_suffix': kinematics_suffix,
+            "gripper_type": gripper_type,
         },
         srdf_arguments={
             'prefix': prefix,

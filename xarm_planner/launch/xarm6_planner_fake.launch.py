@@ -21,6 +21,7 @@ def generate_launch_description():
     velocity_control = LaunchConfiguration('velocity_control', default=False)
     add_gripper = LaunchConfiguration('add_gripper', default=False)
     add_vacuum_gripper = LaunchConfiguration('add_vacuum_gripper', default=False)
+    gripper_type = LaunchConfiguration('gripper_type')
 
     add_realsense_d435i = LaunchConfiguration('add_realsense_d435i', default=False)
     model1300 = LaunchConfiguration('model1300', default=False)
@@ -70,6 +71,7 @@ def generate_launch_description():
             'geometry_mesh_origin_rpy': geometry_mesh_origin_rpy,
             'geometry_mesh_tcp_xyz': geometry_mesh_tcp_xyz,
             'geometry_mesh_tcp_rpy': geometry_mesh_tcp_rpy,
+            "gripper_type": gripper_type,
         }.items(),
     )
 
@@ -102,6 +104,7 @@ def generate_launch_description():
             'geometry_mesh_origin_rpy': geometry_mesh_origin_rpy,
             'geometry_mesh_tcp_xyz': geometry_mesh_tcp_xyz,
             'geometry_mesh_tcp_rpy': geometry_mesh_tcp_rpy,
+            "gripper_typE": gripper_type,
         }.items(),
     )
     

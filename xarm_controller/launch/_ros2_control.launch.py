@@ -31,6 +31,7 @@ def launch_setup(context, *args, **kwargs):
     add_bio_gripper = LaunchConfiguration('add_bio_gripper', default=False)
     dof = LaunchConfiguration('dof', default=7)
     robot_type = LaunchConfiguration('robot_type', default='xarm')
+    gripper_type = LaunchConfiguration('gripper_type')
     ros2_control_plugin = LaunchConfiguration('ros2_control_plugin', default='uf_robot_hardware/UFRobotSystemHardware')
     xacro_file = LaunchConfiguration('xacro_file', default=PathJoinSubstitution([FindPackageShare('xarm_description'), 'urdf', 'xarm_device.urdf.xacro']))
 
@@ -114,6 +115,7 @@ def launch_setup(context, *args, **kwargs):
                 'report_type': report_type,
                 'baud_checkset': baud_checkset,
                 'default_gripper_baud': default_gripper_baud,
+                "gripper_type": gripper_type,
             }
         )
     }
