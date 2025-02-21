@@ -31,14 +31,17 @@ namespace uf_robot_hardware
         joint_state_msg_.velocity.resize(info_.joints.size(), 0);
         joint_state_msg_.effort.resize(info_.joints.size(), 0);
 
-        for (int i = 0; i < info_.joints.size(); i++) {
-            joint_state_msg_.name[i] = info_.joints[i].name;
-        }
-        
         position_states_.resize(info_.joints.size(), 0);
         velocity_states_.resize(info_.joints.size(), 0);
         position_cmds_.resize(info_.joints.size(), 0);
         velocity_cmds_.resize(info_.joints.size(), 0);
+
+        for (int i = 0; i < info_.joints.size(); i++) {
+            joint_state_msg_.name[i] = info_.joints[i].name;
+            position_states_[i] = std::stod( info_.joints[i].parameters["sim_init"]);
+            position_cmds_[i] = std::stod( info_.joints[i].parameters["sim_init"]);
+        }
+
 
         for (const hardware_interface::ComponentInfo & joint : info_.joints) {
             bool has_pos_cmd_interface = false;
